@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  @apply bg-surface text-ink font-sans antialiased;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+}
+
+.dark body {
+  @apply bg-dark-bg text-slate-100;
+}
+
+::selection {
+  background-color: #2563EB;
+  color: #fff;
+}
+
+/* Visible keyboard focus everywhere */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #2563EB;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Reusable layout / component primitives */
+.container-content {
+  @apply max-w-content mx-auto px-6 sm:px-8 lg:px-10;
+}
+
+.eyebrow {
+  @apply font-mono text-[13px] tracking-wide text-primary/80 dark:text-accent/90 inline-flex items-center gap-2;
+}
+
+.eyebrow::before {
+  content: '//';
+  @apply text-line dark:text-dark-line font-semibold;
+}
+
+.section-title {
+  @apply text-3xl sm:text-4xl font-bold tracking-tight text-ink dark:text-white mt-2;
+}
+
+.card {
+  @apply bg-white dark:bg-dark-surface border border-line dark:border-dark-line rounded-xl2 shadow-soft transition-shadow duration-300;
+}
+
+.card:hover {
+  @apply shadow-softHover;
+}
+
+.btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-xl2 px-5 py-3 text-sm font-semibold transition-all duration-200;
+}
+
+.btn-primary {
+  @apply btn bg-primary text-white hover:bg-blue-700 active:bg-blue-800;
+}
+
+.btn-secondary {
+  @apply btn bg-white dark:bg-dark-surface text-ink dark:text-slate-100 border border-line dark:border-dark-line hover:border-primary hover:text-primary;
+}
+
+.btn-ghost {
+  @apply btn text-ink dark:text-slate-100 hover:bg-soft dark:hover:bg-dark-line;
+}
+
+.tag {
+  @apply font-mono text-[12.5px] px-2.5 py-1 rounded-md bg-soft dark:bg-dark-line text-secondary dark:text-slate-200 border border-line dark:border-dark-line;
+}
+
+.skip-link {
+  @apply sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-[100] focus:bg-primary focus:text-white focus:px-4 focus:py-2 focus:rounded-lg;
+}
