@@ -1,0 +1,10 @@
+node_modules
+dist
+.DS_Store
+*.local
+.vscode
+
+# env files (secrets / per-machine config). .env.example is tracked on purpose.
+.env
+.env.*
+!.env.example
