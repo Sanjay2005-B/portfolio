@@ -71,13 +71,24 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="border-t border-dark-border">
-      <div className="container-content py-16 sm:py-20">
-        <p className="eyebrow">contact</p>
-        <h2 className="section-heading">Let's talk</h2>
-        <p className="section-sub">
-          Open to internships, entry-level roles, and anything Java or full stack related.
-        </p>
+    <section id="contact" className="border-b border-ink-line bg-cream-surface/60">
+      <div className="container-content py-20 sm:py-28">
+        <div className="relative">
+          <span
+            className="pointer-events-none select-none absolute -top-10 right-0 font-display text-[7rem] leading-none text-ink/[0.05] hidden sm:block"
+            aria-hidden="true"
+          >
+            09
+          </span>
+          <p className="eyebrow">
+            <span className="text-primary">(09)</span>
+            Contact
+          </p>
+          <h2 className="section-heading mt-5">Get in touch</h2>
+          <p className="section-sub">
+            Open to internships, entry-level roles, and anything Java or full stack related.
+          </p>
+        </div>
 
         <div className="mt-12 grid lg:grid-cols-[0.85fr_1.15fr] gap-8">
           <div className="space-y-3">
@@ -156,19 +167,16 @@ export default function Contact() {
             {status === 'success' && (
               <p
                 role="status"
-                className="flex items-center gap-2 text-[12.5px] text-emerald-400 font-medium"
+                className="flex items-center gap-2 text-[13px] text-emerald-700 font-medium"
               >
-                <CheckCircle2 size={14} />
+                <CheckCircle2 size={15} />
                 Message sent successfully. I'll get back to you soon.
               </p>
             )}
 
             {status === 'error' && (
-              <p
-                role="alert"
-                className="flex items-center gap-2 text-[12.5px] text-red-400 font-medium"
-              >
-                <AlertCircle size={14} />
+              <p role="alert" className="flex items-center gap-2 text-[13px] text-red-700 font-medium">
+                <AlertCircle size={15} />
                 {SUBMIT_ENDPOINT
                   ? 'Unable to send the message. Please try again or email me directly.'
                   : 'This contact form is not connected to an email service yet.'}
@@ -183,22 +191,18 @@ export default function Contact() {
 
 function ContactRow({ icon: Icon, label, value, href }) {
   const content = (
-    <div className="card p-4 flex items-center gap-3.5">
-      <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-primary/10 text-primary shrink-0">
-        <Icon size={15} />
+    <div className="card p-4 flex items-center gap-3.5 hover:-translate-y-0.5">
+      <span className="flex items-center justify-center w-9 h-9 rounded-lg bg-primary/10 text-primary shrink-0">
+        <Icon size={16} />
       </span>
       <div className="min-w-0">
-        <p className="font-mono text-[10px] uppercase tracking-widest text-gray-500">
-          {label}
-        </p>
-        <p className="text-[13px] font-medium text-white mt-0.5 truncate">
-          {value}
-        </p>
+        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink-muted">{label}</p>
+        <p className="text-[14px] font-medium text-ink mt-0.5 truncate">{value}</p>
       </div>
     </div>
   )
   return href ? (
-    <a href={href} className="block hover:-translate-y-0.5 transition-transform duration-200">
+    <a href={href} className="block">
       {content}
     </a>
   ) : (
@@ -211,10 +215,7 @@ function Field({ label, id, error, as = 'input', ...props }) {
   const errorId = `${id}-error`
   return (
     <div>
-      <label
-        htmlFor={id}
-        className="block text-[12.5px] font-medium text-gray-300 mb-1.5"
-      >
+      <label htmlFor={id} className="block text-[12.5px] font-semibold text-ink-soft mb-1.5">
         {label}
       </label>
       <Comp
@@ -222,15 +223,15 @@ function Field({ label, id, error, as = 'input', ...props }) {
         name={id}
         aria-invalid={error ? true : undefined}
         aria-describedby={error ? errorId : undefined}
-        className={`w-full rounded-lg border bg-dark-bg px-3.5 py-2.5 text-[13px] text-white placeholder:text-gray-500 outline-none transition-colors ${
+        className={`w-full rounded-lg border px-3.5 py-2.5 text-[13px] text-ink placeholder:text-ink-faint bg-white outline-none transition-colors ${
           error
-            ? 'border-red-400 focus:border-red-500'
-            : 'border-dark-border focus:border-primary'
+            ? 'border-red-500 focus:border-red-600'
+            : 'border-ink-line focus:border-primary'
         }`}
         {...props}
       />
       {error && (
-        <p id={errorId} className="mt-1.5 text-[12px] text-red-400">
+        <p id={errorId} className="mt-1.5 text-[12px] text-red-700">
           {error}
         </p>
       )}

@@ -4,6 +4,7 @@ import Hero from './components/Hero'
 import About from './components/About'
 import Skills from './components/Skills'
 import Projects from './components/Projects'
+import Experience from './components/Experience'
 import Education from './components/Education'
 import Certifications from './components/Certifications'
 import CodingProfiles from './components/CodingProfiles'
@@ -20,8 +21,9 @@ function Home() {
       <main>
         <Hero />
         <About />
-        <Skills />
         <Projects />
+        <Experience />
+        <Skills />
         <Education />
         <Certifications />
         <CodingProfiles />

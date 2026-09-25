@@ -1,52 +1,59 @@
 import { motion } from 'framer-motion'
-import { GraduationCap } from 'lucide-react'
-import { education } from '../data/portfolioData'
+import { GraduationCap, MapPin } from 'lucide-react'
+import { education, profile } from '../data/portfolioData'
 
 export default function Education() {
   return (
-    <section id="education" className="border-t border-dark-border">
-      <div className="container-content py-16 sm:py-20">
-        <p className="eyebrow">education</p>
-        <h2 className="section-heading">Academic background</h2>
-
-        <div className="mt-12 relative pl-10 max-w-2xl">
+    <section id="education" className="border-b border-ink-line bg-cream-surface/60">
+      <div className="container-content py-20 sm:py-28">
+        <div className="relative">
           <span
-            className="absolute left-[9px] top-2 bottom-2 w-px bg-dark-border"
+            className="pointer-events-none select-none absolute -top-10 right-0 font-display text-[7rem] leading-none text-ink/[0.05] hidden sm:block"
             aria-hidden="true"
-          />
-
-          <motion.div
-            initial={{ opacity: 0, x: -12 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.5 }}
-            className="relative"
           >
-            <span className="absolute -left-10 top-1 w-5 h-5 rounded-full bg-dark-bg border-2 border-primary flex items-center justify-center">
-              <span className="w-2 h-2 rounded-full bg-primary" />
-            </span>
+            05
+          </span>
+          <p className="eyebrow">
+            <span className="text-primary">(05)</span>
+            Education
+          </p>
+          <h2 className="section-heading mt-5">Academic background</h2>
+        </div>
 
-            <div className="card p-6">
-              <div className="flex items-start justify-between gap-4 flex-wrap">
-                <div>
-                  <h3 className="font-bold text-white text-lg">
-                    {education.degree}
-                  </h3>
-                  <p className="text-primary font-medium text-[14px] mt-0.5">
-                    {education.field}
-                  </p>
-                </div>
-                <span className="inline-flex items-center gap-1.5 font-mono text-[11px] px-2.5 py-1 rounded-md bg-primary/10 text-primary border border-primary/20">
-                  <GraduationCap size={12} />
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.5 }}
+          className="mt-12 max-w-2xl relative pl-8 sm:pl-0"
+        >
+          <span className="absolute left-[7px] sm:left-auto sm:-right-6 sm:right-auto top-2 bottom-2 w-px bg-ink-line sm:hidden" aria-hidden="true" />
+
+          <div className="card p-6 sm:p-8">
+            <div className="flex flex-wrap items-start justify-between gap-4">
+              <div>
+                <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-primary inline-flex items-center gap-2">
+                  <GraduationCap size={13} />
                   {education.status}
                 </span>
+                <h3 className="mt-2 font-display text-[30px] sm:text-4xl uppercase tracking-[0.02em] text-ink leading-none">
+                  {education.degree}
+                </h3>
+                <p className="mt-1.5 text-[15px] font-medium text-ink-soft">
+                  {education.field}
+                </p>
               </div>
-              <p className="mt-3 text-[14px] text-gray-400">
-                {education.institution}
+              <p className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-widest text-ink-muted">
+                <MapPin size={12} className="text-primary" />
+                Erode, Tamil Nadu
               </p>
             </div>
-          </motion.div>
-        </div>
+            <div className="mt-5 pt-5 border-t border-ink-line flex items-center justify-between flex-wrap gap-2">
+              <p className="text-[14px] font-medium text-ink-soft">{education.institution}</p>
+              <p className="font-mono text-[11px] text-ink-faint">{profile.subtitle}</p>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   )

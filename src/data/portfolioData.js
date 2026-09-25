@@ -17,11 +17,10 @@ export const profile = {
 export const nav = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
-  { label: 'Skills', href: '#skills' },
   { label: 'Projects', href: '#projects' },
-  { label: 'Education', href: '#education' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Skills', href: '#skills' },
   { label: 'Certifications', href: '#certifications' },
-  { label: 'Resume', href: '#resume' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -36,27 +35,27 @@ export const aboutPoints = [
 export const skillGroups = [
   {
     title: 'Programming',
-    items: ['Java', 'SQL', 'JavaScript'],
+    items: ['Java', 'JavaScript', 'SQL'],
   },
   {
     title: 'Frontend',
-    items: ['HTML5', 'CSS3', 'React', 'Tailwind CSS'],
+    items: ['HTML5', 'CSS3', 'React.js', 'TypeScript', 'Vite', 'Tailwind CSS'],
   },
   {
     title: 'Backend',
-    items: ['Spring Boot', 'REST APIs'],
+    items: ['Java', 'Spring Boot', 'REST APIs', 'JPA / Hibernate', 'Spring Security', 'JDBC'],
   },
   {
-    title: 'Database',
-    items: ['MySQL'],
+    title: 'Databases',
+    items: ['MySQL', 'PostgreSQL'],
   },
   {
     title: 'Tools',
-    items: ['Git', 'GitHub', 'IntelliJ IDEA', 'VS Code', 'Maven', 'Postman'],
+    items: ['Git', 'GitHub', 'Maven', 'IntelliJ IDEA', 'VS Code', 'Postman'],
   },
   {
     title: 'Concepts',
-    items: ['OOP', 'Collections', 'Exception Handling', 'JDBC', 'MVC', 'Responsive Design'],
+    items: ['Object-Oriented Programming', 'Data Structures & Algorithms', 'JWT Authentication', 'CRUD Operations'],
   },
 ]
 
@@ -88,7 +87,7 @@ export const projects = [
   },
   {
     id: 'static-hosting',
-    title: 'Static Website Hosting Platform',
+    title: 'ZENO — Static Site Hosting Platform',
     overview:
       'A lightweight hosting platform where a user uploads a zipped site and gets a live, deployed URL back in seconds.',
     problem:
@@ -102,13 +101,25 @@ export const projects = [
       'One-click redeploy and delete',
       'Clean, shareable URLs per deployed project',
     ],
-    tech: ['Java', 'Spring Boot', 'React', 'MySQL'],
+    tech: ['Java', 'Spring Boot', 'React', 'Spring Security', 'JWT', 'MySQL'],
     challenges:
       'Handling untrusted ZIP uploads safely took the most care — validating file paths to prevent directory traversal during extraction was something I had not had to think about before.',
     lessons:
       'Got hands-on experience with file I/O and multipart uploads in Spring Boot, and a clearer sense of why access control needs to be checked on the server for every request, not just the login step.',
     github: 'https://github.com/Sanjay2005-B',
     demo: '',
+  },
+]
+
+export const experience = [
+  {
+    company: 'ORVIONAR Tech Private Limited',
+    role: 'Full Stack Developer Intern',
+    duration: '3 Months',
+    status: 'Completed',
+    companyUrl: 'https://www.linkedin.com/company/orvionar-tech-private-limited/posts/',
+    description:
+      'Completed a 3-month internship as a Full Stack Developer Intern at ORVIONAR Tech Private Limited, gaining practical exposure to full-stack web development, frontend and backend technologies, and application development workflows.',
   },
 ]
 
@@ -121,12 +132,28 @@ export const education = {
 
 export const certifications = [
   {
-    title: 'Java Programming',
+    title: 'Introduction to Java',
     issuer: 'Infosys Springboard',
+    completionDate: 'December 18, 2024',
+    certificatePath: '/certificates/introduction-to-java.pdf',
   },
   {
-    title: 'HTML & CSS Fundamentals',
+    title: 'HTML5 \u2013 The Language',
     issuer: 'Infosys Springboard',
+    completionDate: 'January 30, 2026',
+    certificatePath: '/certificates/html5-language.pdf',
+  },
+  {
+    title: 'CSS3',
+    issuer: 'Infosys Springboard',
+    completionDate: 'July 30, 2026',
+    certificatePath: '/certificates/css3.pdf',
+  },
+  {
+    title: 'SQL Case Study \u2013 SQL Workshop',
+    issuer: 'Infosys Springboard',
+    completionDate: 'July 29, 2026',
+    certificatePath: '/certificates/sql-case-study-workshop.pdf',
   },
 ]
 

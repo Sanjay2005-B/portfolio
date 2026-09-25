@@ -8,54 +8,56 @@ const icons = {
   LeetCode: Code2,
 }
 
-const accents = {
-  GitHub: 'text-gray-300 bg-white/5',
-  LinkedIn: 'text-sky-400 bg-sky-500/10',
-  LeetCode: 'text-amber-400 bg-amber-500/10',
-}
-
 export default function CodingProfiles() {
   return (
-    <section id="coding-profiles" className="border-t border-dark-border">
-      <div className="container-content py-16 sm:py-20">
-        <p className="eyebrow">elsewhere</p>
-        <h2 className="section-heading">Find me online</h2>
+    <section id="coding-profiles" className="border-b border-ink-line bg-cream-surface/60">
+      <div className="container-content py-20 sm:py-28">
+        <div className="relative">
+          <span
+            className="pointer-events-none select-none absolute -top-10 right-0 font-display text-[7rem] leading-none text-ink/[0.05] hidden sm:block"
+            aria-hidden="true"
+          >
+            07
+          </span>
+          <p className="eyebrow">
+            <span className="text-primary">(07)</span>
+            Elsewhere
+          </p>
+          <h2 className="section-heading mt-5">Find me online</h2>
+        </div>
 
-        <div className="mt-12 grid sm:grid-cols-3 gap-4">
+        <div className="mt-12 grid sm:grid-cols-3 gap-4 max-w-4xl">
           {codingProfiles.map((p, i) => {
-            const Icon = icons[p.platform]
-            const colors = accents[p.platform] ?? 'text-gray-400 bg-white/5'
+            const Icon = icons[p.platform] ?? Code2
             return (
               <motion.a
                 key={p.platform}
                 href={p.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 14 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.45, delay: i * 0.07 }}
-                className="group card p-5 flex flex-col gap-4 hover:border-dark-line hover:-translate-y-1 transition-all duration-300"
+                className="group card p-6 flex flex-col gap-4 hover:-translate-y-1"
               >
                 <div className="flex items-center justify-between">
-                  <span className={`flex items-center justify-center w-8 h-8 rounded-lg ${colors}`}>
-                    <Icon size={16} />
+                  <span className="flex items-center justify-center w-10 h-10 rounded-lg bg-ink text-cream group-hover:bg-primary transition-colors duration-300">
+                    <Icon size={17} />
                   </span>
                   <ArrowUpRight
-                    size={15}
-                    className="text-gray-600 group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300"
+                    size={16}
+                    className="text-ink-faint group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300"
                   />
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold text-white">
+                  <h3 className="font-display text-[22px] uppercase tracking-[0.03em] text-ink">
                     {p.platform}
                   </h3>
-                  <p className="font-mono text-[12px] text-gray-500 mt-0.5">
-                    @{p.username}
-                  </p>
+                  <p className="font-mono text-[12px] text-ink-muted mt-0.5">@{p.username}</p>
                 </div>
-                <span className="text-xs font-medium text-primary">
-                  Visit Profile
+                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-primary">
+                  Visit profile →
                 </span>
               </motion.a>
             )

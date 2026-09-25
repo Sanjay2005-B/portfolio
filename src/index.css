@@ -4,7 +4,14 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 84px;
+  scroll-padding-top: 96px;
+  overflow-x: clip;
+}
+
+body {
+  overflow-x: clip;
+  @apply bg-cream text-ink font-sans antialiased;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -19,13 +26,8 @@ html {
   }
 }
 
-body {
-  @apply bg-dark-bg text-gray-300 font-sans antialiased;
-  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
-}
-
 ::selection {
-  background-color: #3B82F6;
+  background-color: #D71920;
   color: #fff;
 }
 
@@ -33,7 +35,7 @@ a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 textarea:focus-visible {
-  outline: 2px solid #3B82F6;
+  outline: 2px solid #D71920;
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -50,10 +52,10 @@ select:-webkit-autofill:focus,
 input:autofill,
 textarea:autofill,
 select:autofill {
-  -webkit-text-fill-color: #ffffff;
-  caret-color: #ffffff;
-  -webkit-box-shadow: 0 0 0 1000px #0a0a0a inset;
-  box-shadow: 0 0 0 1000px #0a0a0a inset;
+  -webkit-text-fill-color: #111111;
+  caret-color: #111111;
+  -webkit-box-shadow: 0 0 0 1000px #ffffff inset;
+  box-shadow: 0 0 0 1000px #ffffff inset;
   border-radius: 8px;
   transition: background-color 9999s ease-in-out 0s, border-color 150ms ease 0s;
 }
@@ -63,45 +65,46 @@ select:autofill {
 }
 
 .eyebrow {
-  @apply font-mono text-xs tracking-widest uppercase inline-flex items-center gap-2 text-primary;
+  @apply font-mono text-[11px] uppercase tracking-[0.22em] text-primary inline-flex items-center gap-2;
 }
 
 .section-heading {
-  @apply text-3xl sm:text-4xl font-bold tracking-tight mt-3 text-white;
+  @apply font-display uppercase tracking-[0.02em] text-ink leading-[1.02];
+  font-size: clamp(2.4rem, 5vw, 3.9rem);
 }
 
 .section-sub {
-  @apply mt-3 text-sm text-gray-400 max-w-xl leading-relaxed;
+  @apply mt-4 text-[15px] leading-7 text-ink-soft max-w-2xl;
 }
 
 .card {
-  @apply bg-dark-card border border-dark-border rounded-xl2 shadow-card transition-all duration-300;
+  @apply bg-cream-card border border-ink-line rounded-xl2 shadow-card transition-all duration-300;
 }
 
 .card:hover {
-  @apply shadow-card-hover border-dark-line;
+  @apply shadow-card-hover border-ink/30;
 }
 
 .btn {
-  @apply inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-medium transition-all duration-200;
+  @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 text-[12px] font-semibold uppercase tracking-[0.14em] transition-all duration-200;
 }
 
 .btn-primary {
-  @apply btn bg-primary text-white hover:bg-blue-600 active:bg-blue-700;
+  @apply btn bg-primary text-white hover:bg-primary-dark active:bg-primary-dark;
 }
 
-.btn-secondary {
-  @apply btn bg-transparent text-gray-200 border border-dark-border hover:border-primary hover:text-primary;
+.btn-outline {
+  @apply btn border border-ink text-ink hover:bg-ink hover:text-cream;
 }
 
 .btn-ghost {
-  @apply btn text-gray-300 hover:bg-dark-card;
+  @apply btn text-ink-soft hover:text-primary;
 }
 
 .tag {
-  @apply font-mono text-xs px-2.5 py-1 rounded-md bg-dark-surface text-gray-300 border border-dark-border;
+  @apply font-mono text-[11px] px-2.5 py-1 rounded-md bg-cream-surface text-ink-soft border border-ink-line;
 }
 
 .skip-link {
-  @apply sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-[100] focus:bg-primary focus:text-white focus:px-4 focus:py-2 focus:rounded-lg;
+  @apply sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-primary focus:text-white focus:px-4 focus:py-2 focus:rounded-md;
 }

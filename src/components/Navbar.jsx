@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Menu, X, Download } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { nav, profile } from '../data/portfolioData'
 import { useActiveSection } from '../hooks/useActiveSection'
 
@@ -11,7 +11,7 @@ export default function Navbar() {
   const active = useActiveSection(sectionIds)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
+    const onScroll = () => setScrolled(window.scrollY > 24)
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
@@ -21,17 +21,18 @@ export default function Navbar() {
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-dark-bg/80 backdrop-blur-xl border-b border-dark-border'
+          ? 'bg-cream/90 backdrop-blur-md border-b border-ink-line shadow-card'
           : 'bg-transparent border-b border-transparent'
       }`}
     >
-      <nav className="container-content flex items-center justify-between h-16">
-        <a
-          href="#home"
-          className="font-mono text-base font-semibold text-white tracking-tight"
-          aria-label="Sanjay B — home"
-        >
-          Sanjay<span className="text-primary">.B</span>
+      <nav className="container-content flex items-center justify-between h-[72px]">
+        <a href="#home" className="text-left leading-none" aria-label="Sanjay B — home">
+          <span className="block font-display text-[26px] uppercase tracking-[0.04em] text-ink">
+            Sanjay<span className="text-primary">.B</span>
+          </span>
+          <span className="hidden sm:block font-mono text-[9px] uppercase tracking-[0.28em] text-ink-muted mt-0.5">
+            Java Full Stack Developer
+          </span>
         </a>
 
         <ul className="hidden lg:flex items-center gap-1">
@@ -41,15 +42,13 @@ export default function Navbar() {
               <li key={item.href}>
                 <a
                   href={item.href}
-                  className={`relative px-3.5 py-2 text-sm font-medium rounded-md transition-colors duration-200 ${
-                    isActive
-                      ? 'text-primary'
-                      : 'text-gray-400 hover:text-white'
+                  className={`relative px-3 py-2 text-[13px] font-medium transition-colors duration-200 ${
+                    isActive ? 'text-primary' : 'text-ink-soft hover:text-ink'
                   }`}
                 >
                   {item.label}
                   {isActive && (
-                    <span className="absolute bottom-0 left-3.5 right-3.5 h-[2px] bg-primary rounded-full" />
+                    <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-primary" />
                   )}
                 </a>
               </li>
@@ -57,62 +56,55 @@ export default function Navbar() {
           })}
         </ul>
 
-        <div className="hidden lg:flex items-center gap-3">
-          <a
-            href={profile.resumePath}
-            download
-            className="btn-secondary !py-2 !px-4 text-sm"
-          >
-            <Download size={15} />
-            Resume
-          </a>
-          <a href="#contact" className="btn-primary !py-2 !px-4 text-sm">
-            Contact
+        <div className="hidden lg:flex items-center">
+          <a href="#contact" className="btn-primary !px-5 !py-2">
+            Let's Talk
           </a>
         </div>
 
-        <div className="flex lg:hidden items-center gap-1">
+        <div className="flex lg:hidden items-center">
           <button
             onClick={() => setOpen((o) => !o)}
             aria-label="Toggle menu"
             aria-expanded={open}
-            className="p-2 rounded-md text-white hover:bg-dark-card transition-colors"
+            className="p-2 -mr-2 text-ink hover:text-primary transition-colors"
           >
-            {open ? <X size={22} /> : <Menu size={22} />}
+            {open ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </nav>
 
       {open && (
-        <div className="lg:hidden border-t border-dark-border bg-dark-bg/95 backdrop-blur-xl">
-          <ul className="container-content py-4 flex flex-col">
+        <div className="lg:hidden border-t border-ink-line bg-cream">
+          <ul className="container-content py-4">
             {nav.map((item) => (
               <li key={item.href}>
                 <a
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="block py-2.5 text-[15px] font-medium text-gray-300 hover:text-primary transition-colors"
+                  className="block py-3 font-display text-[26px] uppercase tracking-wide text-ink hover:text-primary transition-colors"
                 >
                   {item.label}
                 </a>
               </li>
             ))}
-            <li className="pt-3 border-t border-dark-border mt-1 flex gap-2.5">
+            <li className="pt-4 mt-2">
+              <a
+                href="#contact"
+                onClick={() => setOpen(false)}
+                className="btn-primary w-full"
+              >
+                Let's Talk
+              </a>
+            </li>
+            <li className="mt-3">
               <a
                 href={profile.resumePath}
                 download
                 onClick={() => setOpen(false)}
-                className="btn-secondary flex-1 text-sm"
+                className="btn-outline w-full"
               >
-                <Download size={15} />
-                Resume
-              </a>
-              <a
-                href="#contact"
-                onClick={() => setOpen(false)}
-                className="btn-primary flex-1 text-sm"
-              >
-                Contact Me
+                Download Resume
               </a>
             </li>
           </ul>
