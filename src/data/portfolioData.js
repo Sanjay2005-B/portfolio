@@ -83,7 +83,7 @@ export const projects = [
     lessons:
       'Gained hands-on experience with constraint satisfaction problems, learned the tradeoffs between greedy heuristics and solver-based approaches, and got a much deeper understanding of JWT-based authentication flows with session tracking.',
     github: 'https://github.com/Sanjay2005-B',
-    demo: '',
+    demo: 'https://timetable-scheduler-ruddy-eight.vercel.app/login',
   },
   {
     id: 'static-hosting',
