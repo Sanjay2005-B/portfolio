@@ -66,6 +66,17 @@ export default function ProjectCaseStudy({ project, index, onClose }) {
                     <span className="hidden sm:inline">Code</span>
                   </a>
                 )}
+                {project.demo && (
+                  <a
+                    href={project.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-outline !py-2 !px-3.5 text-[11px]"
+                  >
+                    <span className="hidden sm:inline">Live Demo</span>
+                    <span className="sm:hidden">Live</span>
+                  </a>
+                )}
                 <button
                   type="button"
                   onClick={onClose}
@@ -115,17 +126,30 @@ export default function ProjectCaseStudy({ project, index, onClose }) {
                   <DetailBlock label="Challenges" text={project.challenges} />
                   <DetailBlock label="Lessons Learned" text={project.lessons} />
 
-                  {project.github && (
-                    <div className="pt-4 border-t border-ink-line">
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn-primary"
-                      >
-                        View on GitHub
-                        <ArrowUpRight size={15} />
-                      </a>
+                  {(project.github || project.demo) && (
+                    <div className="pt-4 border-t border-ink-line flex flex-wrap gap-2.5">
+                      {project.github && (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn-primary"
+                        >
+                          View on GitHub
+                          <ArrowUpRight size={15} />
+                        </a>
+                      )}
+                      {project.demo && (
+                        <a
+                          href={project.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn-outline"
+                        >
+                          View Live
+                          <ArrowUpRight size={15} />
+                        </a>
+                      )}
                     </div>
                   )}
                 </div>

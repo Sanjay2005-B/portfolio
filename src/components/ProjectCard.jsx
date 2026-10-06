@@ -28,8 +28,13 @@ export default function ProjectCard({ project, index, onOpenCaseStudy }) {
           <span>Featured Project {number}</span>
           <span className="text-ink-faint text-[9px]">java · full stack</span>
         </p>
-        <h3 className="mt-2.5 font-display text-[28px] sm:text-[30px] uppercase tracking-[0.02em] text-ink group-hover:text-primary transition-colors duration-300 leading-none">
+        <h3 className="mt-2.5 font-display text-[28px] sm:text-[30px] uppercase tracking-[0.02em] text-ink group-hover:text-primary transition-colors duration-300 leading-none flex items-center gap-2 flex-wrap">
           {project.title}
+          {project.demo && project.id === 'timetable-scheduler' && (
+            <span className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.18em] text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded">
+              ● LIVE
+            </span>
+          )}
         </h3>
 
         <p className="mt-3 text-[14px] leading-6 text-ink-soft">{project.overview}</p>
@@ -53,9 +58,21 @@ export default function ProjectCard({ project, index, onOpenCaseStudy }) {
               <Github size={14} />
               View on GitHub
             </a>
-            <span className="font-mono text-[10px] uppercase tracking-widest text-ink-faint">
-              live demo not deployed
-            </span>
+            {project.demo && (
+              <a
+                href={project.demo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-outline !py-2 !px-4 text-[11px]"
+              >
+                Live Demo
+              </a>
+            )}
+            {!project.demo && (
+              <span className="font-mono text-[10px] uppercase tracking-widest text-ink-faint">
+                live demo not deployed
+              </span>
+            )}
           </div>
 
           <button

@@ -80,9 +80,6 @@ export default function Footer() {
           <p className="text-[12px] text-night-muted">
             &copy; 2026 Sanjay B. All Rights Reserved.
           </p>
-          <p className="font-mono text-[11px] text-night-muted">
-            built with react + tailwind + spring boot
-          </p>
         </div>
       </div>
     </footer>

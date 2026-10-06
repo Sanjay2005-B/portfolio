@@ -46,14 +46,9 @@ export default {
           '0%, 49%': { opacity: 1 },
           '50%, 100%': { opacity: 0 },
         },
-        scrollDot: {
-          '0%': { transform: 'translateY(0)' },
-          '100%': { transform: 'translateY(36px)' },
-        },
       },
       animation: {
         blink: 'blink 1s step-start infinite',
-        'scroll-dot': 'scrollDot 1.8s ease-in-out infinite',
       },
     },
   },

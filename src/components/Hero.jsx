@@ -68,12 +68,6 @@ export default function Hero() {
                 Download Resume
               </a>
             </motion.div>
-
-            <motion.div variants={rise} className="mt-10 hidden sm:flex items-center gap-6 font-mono text-[11px] uppercase tracking-[0.2em] text-ink-muted">
-              <span>
-                // final year · computer science &amp; design
-              </span>
-            </motion.div>
           </div>
 
           <motion.div
@@ -107,20 +101,6 @@ export default function Hero() {
             </div>
           </motion.div>
         </div>
-
-        <motion.a
-          variants={rise}
-          href="#about"
-          className="mt-16 inline-flex flex-col items-center gap-3 group"
-          aria-label="Scroll to About"
-        >
-          <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-ink-muted group-hover:text-primary transition-colors">
-            Scroll
-          </span>
-          <span className="relative w-px h-10 bg-ink/20 overflow-hidden">
-            <span className="absolute inset-x-0 top-0 h-3 bg-primary animate-scroll-dot" />
-          </span>
-        </motion.a>
       </motion.div>
 
       <div className="absolute top-40 right-0 -mr-6 hidden xl:flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-ink-faint [writing-mode:vertical-rl]">
